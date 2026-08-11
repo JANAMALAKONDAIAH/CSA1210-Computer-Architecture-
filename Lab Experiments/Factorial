@@ -1,0 +1,19 @@
+MVI B,05H
+MVI C,01H
+
+LOOP: MOV D,B
+      MVI E,00H
+
+MUL:  MOV A,E
+      ADD C
+      MOV E,A
+      DCR D
+      JNZ MUL
+
+      MOV C,E
+      DCR B
+      JNZ LOOP
+
+MOV A,C
+STA 2500H
+HLT
